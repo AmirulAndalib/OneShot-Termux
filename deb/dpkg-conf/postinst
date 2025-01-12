@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "Creating symlink to oneshot..."
+# Create architecture-specific symlinks
+arch=$(uname -m)
+case $arch in
+    aarch64) arch_dir="arm64-v8a" ;;
+    armv7l) arch_dir="armeabi-v7a" ;;
+    x86_64) arch_dir="x86_64" ;;
+    i386) arch_dir="x86" ;;
+    *) echo "Unsupported architecture: $arch" && exit 1 ;;
+esac
+
+ln -sf $PREFIX/share/oneshot/libs/$arch_dir/oneshot $PREFIX/bin/oneshot
+chmod +x $PREFIX/bin/oneshot
