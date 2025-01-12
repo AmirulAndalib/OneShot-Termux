@@ -11,9 +11,7 @@
 #include <string.h>
 #include <inttypes.h>
 
-#ifndef P_tmpdir
 #define P_tmpdir "/dev"
-#endif
 
 extern FILE *popen (const char *command, const char *modes);
 extern int pclose (FILE *stream);
